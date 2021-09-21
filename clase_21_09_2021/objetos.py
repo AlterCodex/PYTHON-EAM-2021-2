@@ -2,9 +2,6 @@
 class Perro():
 
 
-
-
-
     def acelerar(self):
         pass
 
