@@ -6,7 +6,7 @@ class Guitarra:
     def __init__(self, color, modelo, marca,
                  madera_del_mastil='Roble', madera_del_diapason='Roble', precio=0,
                  afinacion='RE',  *args, **kargs):
-        self.color = color
+        self.color= color
         self.marca = marca
         self.modelo = modelo
         self.serial = '123465789'
