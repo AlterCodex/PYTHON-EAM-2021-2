@@ -28,3 +28,6 @@ class Guitarra:
 
     def apreciar(self, nuevo_precio):
         self.precio = nuevo_precio
+
+    def buscar(self, marca):
+        return None

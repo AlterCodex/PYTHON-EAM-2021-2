@@ -13,3 +13,9 @@ class Inventario():
             if g.marca == marca:
                 yield g
 
+    def buscar(self,marca, modelo, serial, color, madera):
+        for g in self.guitarras:
+            if g.marca == marca and g.modelo == modelo\
+                    and g.serial == serial and g.color ==color \
+                    and (g.madera_del_mastil== madera or g.madera_del_diapason==madera):
+                yield g

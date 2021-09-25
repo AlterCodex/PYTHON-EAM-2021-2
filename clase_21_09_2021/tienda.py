@@ -1,6 +1,5 @@
 from clase_21_09_2021.guitarra import Guitarra
 from clase_21_09_2021.Inventario import Inventario
-
 inventario=Inventario()
 
 if __name__== '__main__':
@@ -13,8 +12,10 @@ if __name__== '__main__':
 
     guitarra = Guitarra(color, modelo, marca,
                  madera_mastil, madera_diapason)
+
     inventario.agregar_guitarra(guitarra)
-    print(inventario.guitarras)
+    result= inventario.buscar(marca, modelo, '123465789', color, madera_mastil)
+    print(list(result))
     inventario.agregar_guitarra('VIOLIN')
     print(inventario.guitarras)
 

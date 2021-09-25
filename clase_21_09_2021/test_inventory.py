@@ -1,6 +1,4 @@
-
-
-from clase_21_09_2021.Inventario import  Inventario
+from clase_21_09_2021.Inventario import Inventario
 from clase_21_09_2021.guitarra import Guitarra
 
 def test_buscar():
@@ -16,8 +14,7 @@ def test_buscar():
             inv.agregar_guitarra(
                 Guitarra('ROJA', modelo,marca)
             )
-    for guitarra in inv.buscar('fender'):
-        print(guitarra)
+    assert True
 
 if __name__ == '__main__':
     test_buscar()

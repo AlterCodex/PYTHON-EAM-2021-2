@@ -1,3 +1,4 @@
+from clase_23_09_2021.EspecificacionGuitarra import EspecificacionGuitarra
 from clase_23_09_2021.guitarra import Guitarra
 class Inventario():
 
@@ -6,10 +7,15 @@ class Inventario():
 
     def agregar_guitarra(self,guitarra):
         if type(guitarra) == Guitarra:
-            self.guitarras.append(guitarra)
+            espec = EspecificacionGuitarra()
+            espec.agregar_parametro('serial', guitarra.serial)
+            if len(list(self.buscar(espec))) == 0:
+                self.guitarras.append(guitarra)
+            else:
+                raise Exception('Guitarra repetida')
 
-    def buscar(self,marca):
+    def buscar(self,especificacion):
         for g in self.guitarras:
-            if g.marca == marca:
+            if g.cumple(especificacion):
                 yield g
 

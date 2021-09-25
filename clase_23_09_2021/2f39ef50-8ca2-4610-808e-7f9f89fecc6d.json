@@ -1,0 +1,1 @@
+{"py/object": "clase_23_09_2021.guitarra.Guitarra", "color": "Azul", "marca": "artesanal", "modelo": "a1", "serial": {"py/object": "uuid.UUID", "hex": "2f39ef508ca24610808e7f9f89fecc6d"}, "afinacion": "RE", "madera_del_mastil": "caoba", "madera_del_diapason": "roble", "precio": 0}
