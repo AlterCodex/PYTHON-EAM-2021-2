@@ -1,1 +1,0 @@
-{"py/object": "clase_23_09_2021.guitarra.Guitarra", "color": "Azul", "marca": "fender", "modelo": "f1", "serial": {"py/object": "uuid.UUID", "hex": "115a063c01804b3c9c3d4f92dfbb5d75"}, "afinacion": "RE", "madera_del_mastil": "roble", "madera_del_diapason": "caoba", "precio": 0}
