@@ -1,4 +1,5 @@
 from clase_21_09_2021.guitarra import Guitarra
+
 class Inventario():
 
     def __init__(self):

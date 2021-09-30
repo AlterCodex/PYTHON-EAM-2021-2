@@ -1,6 +1,9 @@
 
+class Instrumento:
+    pass
 
-class Guitarra:
+
+class Guitarra(Instrumento):
 
 
     def __init__(self, color, modelo, marca,
