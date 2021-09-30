@@ -5,9 +5,6 @@ from ejemplos_utiles.herencias.cuadrado import Cuadrado
 from ejemplos_utiles.herencias.figura_geometrica import FiguraGeometrica
 
 
-
-
-
 if __name__ == '__main__':
     figuras =[]
     figuras.append(Circulo(10))
