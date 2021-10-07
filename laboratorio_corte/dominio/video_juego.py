@@ -1,5 +1,5 @@
 from laboratorio_corte.dominio.articulo import Articulo
-
+from laboratorio_corte.infraestructura.persistencia_videojuego import PersistenciaVideoJuego
 
 class VideoJuego(Articulo):
 
@@ -14,3 +14,6 @@ class VideoJuego(Articulo):
 
 
     def guardar(self ,serial):
+        persitencia_videoJuego=PersistenciaVideoJuego()
+        persitencia_videoJuego.connect()
+        persitencia_videoJuego.guardar(self, serial)

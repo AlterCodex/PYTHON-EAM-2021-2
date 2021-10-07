@@ -3,6 +3,7 @@ import sqlite3
 import jsonpickle
 
 from laboratorio_corte.dominio.producto import Producto
+from laboratorio_corte.infraestructura.config import Config
 
 
 class PersistenciaProducto():
@@ -10,7 +11,6 @@ class PersistenciaProducto():
     def connect(self):
         self.con = sqlite3.connect("la_tienda_de_los_nerds.sqlite")
         self.__crear_tabla()
-
 
     def __crear_tabla(self):
         try:
@@ -51,6 +51,15 @@ class PersistenciaProducto():
         producto.articulo.guardar(producto.serial)
 
 
+
+    @classmethod
+    def save(cls,producto):
+        config=Config.obtener_instancia()
+        if config.usaBase :
+            persistencia = cls()
+            persistencia.guardar_producto(producto)
+        else:
+            cls.save_json(producto)
 
 
     @classmethod

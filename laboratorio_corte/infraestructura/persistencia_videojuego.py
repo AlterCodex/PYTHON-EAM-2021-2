@@ -1,6 +1,7 @@
 import sqlite3
 
 
+
 class PersistenciaVideoJuego():
 
     def connect(self):
@@ -13,36 +14,40 @@ class PersistenciaVideoJuego():
             cursor = self.con.cursor()
             query = "CREATE TABLE " \
                     "VideoJuego(" \
-                    "serial text primary key, " \
+                    "id Integer PRIMARY KEY Autoincrement," \
+                    "nombre Text," \
                     "release_date text," \
-                    "iva float, " \
-                    "garantia int," \
-                    "tipo text," \
-                    "cantidad_disponible int," \
-                    "prendido int) "
+                    "clasificacion text, " \
+                    "consola text," \
+                    "empresa text," \
+                    "numero_jugadores integer ," \
+                    "tipo_juego text," \
+                    "serial text," \
+                    "FOREIGN KEY(serial) references Producto(serial))"
             cursor.execute(query)
         except sqlite3.OperationalError as ex:
             pass
 
 
-    def guardar_producto(self, producto: Producto):
+    def guardar(self, videojuego, serial):
         cursor = self.con.cursor()
-        query = "insert into Producto" \
-                "(serial, " \
-                "precio, " \
-                "iva, " \
-                "garantia, " \
-                "tipo, " \
-                "cantidad_disponible ," \
-                "prendido )  " \
+        query = "insert into VideoJuego" \
+                "(nombre, " \
+                "release_date, " \
+                "clasificacion, " \
+                "consola, " \
+                "empresa ," \
+                "numero_jugadores, " \
+                "tipo_juego," \
+                "serial )  " \
                 "values(" \
-                " ?,?,?,?,?,?,?)"
-        cursor.execute(query, (str(producto.serial),
-                               producto.precio,
-                               producto.iva,
-                               producto.garantia_meses,
-                               producto.tipo,
-                               producto.cantidad_disponible,
-                               producto.prendido))
+                " ?,?,?,?,?,?,?,?)"
+        cursor.execute(query, (videojuego.nombre,
+                               videojuego.release_date,
+                               videojuego.clasificacion,
+                               videojuego.consola,
+                               videojuego.empresa,
+                               videojuego.numero_jugadores,
+                               videojuego.tipo_juego,
+                               str(serial)))
         self.con.commit()
-        producto.articulo.guardar(producto.serial)
