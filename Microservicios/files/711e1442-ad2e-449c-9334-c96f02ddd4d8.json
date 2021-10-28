@@ -1,0 +1,1 @@
+{"py/object": "clase_28_09_2021.Dominio.guitarra.Guitarra", "color": "morado", "marca": "guibson", "modelo": "G3", "serial": {"py/object": "uuid.UUID", "hex": "711e1442ad2e449c9334c96f02ddd4d8"}, "afinacion": "RE", "madera_del_mastil": "mata raton", "madera_del_diapason": "caoba", "precio": 0}

@@ -2,3 +2,7 @@
 .idea/
 
 Clases/clase_21_09_2021/__pycache__/
+
+venv/bin/
+
+venv/

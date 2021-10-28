@@ -1,0 +1,1 @@
+{"py/object": "clase_28_09_2021.Dominio.guitarra.Guitarra", "color": "morado", "marca": "fender", "modelo": "f2", "serial": {"py/object": "uuid.UUID", "hex": "63daa4263fe7438e9ea58769e8ed3e6b"}, "afinacion": "RE", "madera_del_mastil": "triplex", "madera_del_diapason": "caoba", "precio": 0}
