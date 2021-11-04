@@ -8,3 +8,5 @@ venv/bin/
 venv/
 
 tienda_video_juegos/__pycache__/
+
+*.pyc

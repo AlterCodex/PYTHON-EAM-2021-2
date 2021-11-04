@@ -46,8 +46,13 @@ class VideoJuegoController():
         juego.guardar()
         resp.status = falcon.HTTP_CREATED
 
-    def on_put(self):
-        pass
+    def on_put(self, req, resp, id):
+        video_juego_repositorio = PersistenciaVideoJuego()
+        video_juego = video_juego_repositorio.cargar(id)
+        video_juego.update(req.media)
+        video_juego.id = id
+        video_juego.guardar()
+        resp.body = video_juego.__dict__
 
     def on_delete(self):
         pass

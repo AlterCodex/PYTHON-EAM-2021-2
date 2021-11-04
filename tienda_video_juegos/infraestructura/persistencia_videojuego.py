@@ -1,7 +1,6 @@
 import sqlite3
 
 
-
 class PersistenciaVideoJuego():
 
     def __init__(self):
@@ -58,15 +57,51 @@ class PersistenciaVideoJuego():
         from tienda_video_juegos.dominio.video_juego import VideoJuego
 
         cursor = self.con.cursor()
-        video_juegos=cursor.execute("select nombre,release_date,clasificacion,consola,"
-                                    "empresa, numero_jugadores,tipo_juego,serial "
-                                    " from videojuego")
-        juegos=[]
-        for nombre,release_date,clasificacion,consola,empresa, \
-            numero_jugadores,tipo_juego,serial in video_juegos:
-
-            juego_cargado =VideoJuego(nombre,release_date,clasificacion,consola
-                                      , empresa, numero_jugadores,
-                                      tipo_juego,serial)
+        video_juegos = cursor.execute(
+            "select nombre,release_date,clasificacion,consola,"
+            "empresa, numero_jugadores,tipo_juego,serial "
+            " from videojuego")
+        juegos = []
+        for nombre, release_date, clasificacion, consola, empresa, \
+            numero_jugadores, tipo_juego, serial in video_juegos:
+            juego_cargado = VideoJuego(nombre, release_date, clasificacion,
+                                       consola
+                                       , empresa, numero_jugadores,
+                                       tipo_juego, serial)
             juegos.append(juego_cargado)
         return juegos
+
+    def cargar(self, id):
+        from tienda_video_juegos.dominio.video_juego import VideoJuego
+
+        cursor = self.con.cursor()
+        video_juegos = cursor.execute(
+            "select nombre,release_date,clasificacion,consola,"
+            "empresa, numero_jugadores,tipo_juego,serial "
+            " from videojuego where id = ?", (id,))
+        juego_cargado = None
+        for nombre, release_date, clasificacion, consola, empresa, \
+            numero_jugadores, tipo_juego, serial in video_juegos:
+            juego_cargado = VideoJuego(nombre, release_date, clasificacion,
+                                       consola
+                                       , empresa, numero_jugadores,
+                                       tipo_juego, serial)
+        return juego_cargado
+
+    def actualizar(self, video_juego, id):
+        print(id)
+        query= 'update VideoJuego set nombre=?,release_date=?,clasificacion=?,'\
+               'consola =?,empresa=?, numero_jugadores=?,tipo_juego=?,' \
+               'serial=? '\
+               'where id=?'
+        cursor = self.con.cursor()
+        cursor.execute(query,(video_juego.nombre,
+                                video_juego.release_date,
+                                video_juego.clasificacion,
+                                video_juego.consola,
+                                video_juego.empresa,
+                                video_juego.numero_jugadores,
+                                video_juego.tipo_juego,
+                                video_juego.serial,
+                                id))
+        self.con.commit()
