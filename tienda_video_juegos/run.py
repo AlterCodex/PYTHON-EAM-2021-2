@@ -1,7 +1,8 @@
 from falcon import App
 
 from tienda_video_juegos.controlador.video_juego_controller import \
-    VideoJuegoController
+    VideoJuegoController, Demo
+
 
 
 def iniciar() -> App:
@@ -9,6 +10,7 @@ def iniciar() -> App:
     api = App()
     api.add_route("/video-juego/", VideoJuegoController())
     api.add_route("/video-juego/{id:int}",VideoJuegoController())
+    api.add_route("/demo/", Demo())
     return api
 
 app = iniciar()

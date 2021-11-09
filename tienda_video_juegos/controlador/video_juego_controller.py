@@ -1,4 +1,8 @@
+import datetime
 import json
+import random
+import time
+from time import sleep
 
 import falcon
 
@@ -56,3 +60,20 @@ class VideoJuegoController():
 
     def on_delete(self):
         pass
+
+
+class Demo():
+
+    def on_get(self, req, resp):
+        while True:
+            r = datetime.datetime.now().second
+            if(r%3==0):
+                resp.status=falcon.HTTP_503
+            elif(r%7==0):
+                resp.status=falcon.HTTP_GATEWAY_TIMEOUT
+            elif(r%11==0):
+                resp.status=falcon.HTTP_200
+            else:
+                resp.status=falcon.HTTP_500
+            resp.body ="{}"
+            return resp
